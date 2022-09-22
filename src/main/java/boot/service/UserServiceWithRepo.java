@@ -1,6 +1,5 @@
 package boot.service;
 
-
 import boot.model.User;
 import boot.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,10 +42,5 @@ public class UserServiceWithRepo {
     @Transactional
     public void delete(Long id) {
         userRepository.deleteById(id);
-    }
-
-    @Transactional(readOnly = true)
-    public void testCustomQueries() {
-        System.out.println("Testing");
     }
 }

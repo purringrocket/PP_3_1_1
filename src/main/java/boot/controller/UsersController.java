@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("users")
+@RequestMapping("/users")
 public class UsersController {
 
     private UserServiceWithRepo userService;
@@ -24,10 +24,6 @@ public class UsersController {
     @GetMapping()
     public String index(Model model) {
         model.addAttribute("users", userService.findAll());
-
-        //test
-        userService.testCustomQueries();
-
         return "users/index";
     }
 
