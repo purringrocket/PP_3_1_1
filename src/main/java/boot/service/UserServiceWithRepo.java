@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class UserServiceWithRepo {
+public class UserServiceWithRepo implements UserService {
 
     private UserRepository userRepository;
 

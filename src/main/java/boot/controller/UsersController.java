@@ -1,7 +1,7 @@
 package boot.controller;
 
 import boot.model.User;
-import boot.service.UserServiceWithRepo;
+import boot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,10 +14,10 @@ import javax.validation.Valid;
 @RequestMapping("/users")
 public class UsersController {
 
-    private UserServiceWithRepo userService;
+    private UserService userService;
 
     @Autowired
-    public void setUserService(UserServiceWithRepo userService) {
+    public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
@@ -57,7 +57,7 @@ public class UsersController {
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult, @PathVariable("id") Long id) {
+    public String update(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
         System.out.println("bindingResult.hasErrors() " + bindingResult.hasErrors());
         System.out.println("bindingResult.hasFieldErrors()" + bindingResult.hasFieldErrors());
         if (bindingResult.hasErrors()) {

@@ -5,13 +5,13 @@ import boot.model.User;
 import java.util.List;
 
 public interface UserService {
-    List<User> getAllUsers();
+    List<User> findAll();
 
-    User getUserById(long id);
+    User findUserById(Long id);
 
     void save(User user);
 
-    void update(User user);
+    void update(Long id, User user);
 
-    void delete(long id);
+    void delete(Long id);
 }
